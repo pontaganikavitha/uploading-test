@@ -42,6 +42,7 @@ const io = socketIo(server, {
   cors: {
     origin: [process.env.CLIENT_URL, process.env.ADMIN_URL], // Update with your client origins
     methods: ['GET', 'POST'],
+    credentials: true,
   },
 });
 

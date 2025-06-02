@@ -4,7 +4,13 @@ import { io } from 'socket.io-client';
 import { debounce } from 'lodash';
 import '../styles/UploadedFiles.css';
 
-const socket = io('https://test1.3ding.in/api');
+// const socket = io('https://test1.3ding.in/api');
+
+const socket = io('https://test1.3ding.in', {
+  transports: ['websocket', 'polling'],
+  path: '/socket.io', // adjust if needed
+});
+
 
 const OrderDetails = () => {
   const { orderId } = useParams();

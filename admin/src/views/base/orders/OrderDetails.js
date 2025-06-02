@@ -2,7 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { io } from 'socket.io-client';
 
-const socket = io('https://test1.3ding.in/api');
+// const socket = io('https://test1.3ding.in/api');
+
+const socket = io('https://test1.3ding.in', {
+  transports: ['websocket', 'polling'],
+  path: '/socket.io', // adjust if needed
+});
+
 
 const OrderDetails = () => {
   const { orderId } = useParams();
